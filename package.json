@@ -1,0 +1,22 @@
+{
+  "name": "crud-nodejs-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "express-myconnection": "^1.0.4",
+    "morgan": "^1.9.0",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  },
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
