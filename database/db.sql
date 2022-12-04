@@ -1,8 +1,8 @@
 -- to create a new database
-CREATE DATABASE crudnodejsmysql;
+CREATE DATABASE customersdb;
 
 -- to use database
-use crudnodejsmysql;
+use customersdb;
 
 -- creating a new table
 CREATE TABLE customer (
@@ -17,5 +17,3 @@ show tables;
 
 -- to describe table
 describe customer;
-
-
