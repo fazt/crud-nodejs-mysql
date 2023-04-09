@@ -34,3 +34,14 @@ export const deleteCustomer = async (req, res) => {
   }
   res.redirect("/");
 };
+
+export const getOneCustomer = async (req, res) => {
+  const { id } = req.params;
+  const result = await pool.query("SELECT * FROM customer WHERE id = ?", [id]);
+  if (result) {
+    res.json({ result });
+  }else {
+    res.redirect("/not-found");
+
+  }
+};
