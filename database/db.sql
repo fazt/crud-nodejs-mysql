@@ -1,16 +1,14 @@
--- to create a new database
-CREATE DATABASE customersdb;
+import mysql from 'mysql';
 
--- to use database
-use customersdb;
+const pool = mysql.createPool({
+  host: 'localhost',       // Host de tu base de datos (puede variar)
+  user: 'root',      // Nombre de usuario de MySQL
+  password: '', // Contraseña de MySQL
+  database: 'pruebas' // Nombre de tu base de datos
+});
 
--- creating a new table
-CREATE TABLE customer (
-  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
-  address VARCHAR(100) NOT NULL,
-  phone VARCHAR(15)
-);
+export { pool };
+
 
 -- to show all tables
 show tables;
