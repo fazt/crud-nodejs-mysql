@@ -34,3 +34,21 @@ export const deleteCustomer = async (req, res) => {
   }
   res.redirect("/");
 };
+
+export const singUp = async (req, res) => {
+  //const user = req.body;
+  //Instrucción sql para buscar un usuario en la base de datos e iniciar sesión
+  /*
+  const [rows] = await pool.query("SELECT * FROM customer WHERE address = ?", [
+    user.address,
+  ]);
+  console.log(user);
+  if (rows.length === 1) {
+    if (rows[0].phone === user.phone) {
+      return res.redirect("/");
+    }
+  }
+  */
+
+  res.render("singup");
+};
