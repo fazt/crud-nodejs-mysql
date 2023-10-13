@@ -36,19 +36,30 @@ export const deleteCustomer = async (req, res) => {
 };
 
 export const singUp = async (req, res) => {
-  //const user = req.body;
-  //Instrucción sql para buscar un usuario en la base de datos e iniciar sesión
-  /*
-  const [rows] = await pool.query("SELECT * FROM customer WHERE address = ?", [
-    user.address,
-  ]);
-  console.log(user);
-  if (rows.length === 1) {
-    if (rows[0].phone === user.phone) {
-      return res.redirect("/");
-    }
-  }
-  */
+  res.render("singup", {});
+};
 
-  res.render("singup");
+export const home = async (req, res) => {
+  res.send("Home");
+};
+
+//Función de autenticación
+export const auth = async (req, res) => {
+  const { email, password } = req.body;
+  const [result] = await pool.query(
+    "SELECT * FROM customer WHERE address = ? AND phone = ?",
+    [email, password]
+  );
+  if (result.length > 0) {
+    if (password === result[0].phone) {
+      console.log("Error");
+      res.redirect("/");
+    } else {
+      console.log("/home");
+      res.redirect("/home");
+    }
+  } else {
+    console.log("Correcto");
+    res.redirect("/");
+  }
 };
