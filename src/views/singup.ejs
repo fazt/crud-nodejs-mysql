@@ -1,0 +1,20 @@
+<%- include("partials/_header") %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-7">
+      <h1>Iniciar Sesión</h1>
+      <form action="/auth" method="POST">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required />
+        <br />
+        <label for="password">Teléfono:</label>
+        <input type="password" id="password" name="password" required />
+        <br />
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/_footer") %>

@@ -34,3 +34,32 @@ export const deleteCustomer = async (req, res) => {
   }
   res.redirect("/");
 };
+
+export const singUp = async (req, res) => {
+  res.render("singup", {});
+};
+
+export const home = async (req, res) => {
+  res.send("Home");
+};
+
+//Función de autenticación
+export const auth = async (req, res) => {
+  const { email, password } = req.body;
+  const [result] = await pool.query(
+    "SELECT * FROM customer WHERE address = ? AND phone = ?",
+    [email, password]
+  );
+  if (result.length > 0) {
+    if (password === result[0].phone) {
+      console.log("Error");
+      res.redirect("/");
+    } else {
+      console.log("/home");
+      res.redirect("/home");
+    }
+  } else {
+    console.log("Correcto");
+    res.redirect("/");
+  }
+};
